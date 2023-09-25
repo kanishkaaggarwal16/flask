@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Startup Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Create a container for the entire content */
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* Style for the image on the left side */
+        .image {
+            background-image: url('https://i.imgur.com/04Lspc2.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 50%; /* Adjust the width as needed */
+            height: 100vh;
+        }
+
+        /* Style for the content on the right side */
+        .content {
+            background-color: #f2f2f2; /* Background color for the content side */
+            width: 50%; /* Adjust the width as needed */
+            padding: 20px;
+        }
+
+        /* Center the heading */
+        h1 {
+            text-align: center;
+            color: #007BFF;
+        }
+
+        /* Style for the form elements */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .form-group input[type="text"], .form-group input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .predict-button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            display: block;
+            margin: 20px auto;
+        }
+
+        /* Add some style to the prediction result */
+        .prediction-result {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .result-operating {
+            background-color: #28a745; /* Green color for "Operating" */
+            color: white;
+        }
+
+        .result-acquired {
+            background-color: #ffc107; /* Yellow color for "Acquired" */
+            color: white;
+        }
+
+        .result-closed {
+            background-color: #dc3545; /* Red color for "Closed" */
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image"></div>
+        <div class="content">
+            <h1>Startup Information</h1>
+            <form method="post" action="/predict">
+                <div class="form-group">
+                    <label for="total_f">Total Funding</label>
+                    <input type="number" name="total_f" id="total_f" required>
+                </div>
+                <div class="form-group">
+                    <label for="funding_rounds">Funding Rounds</label>
+                    <input type="number" name="funding_rounds" id="funding_rounds" required>
+                </div>
+                <div class="form-group">
+                    <label for="seed">Seed</label>
+                    <input type="number" name="seed" id="seed" required>
+                </div>
+                <div class="form-group">
+                    <label for="venture">Venture</label>
+                    <input type="number" name="venture" id="venture" required>
+                </div>
+                <div class="form-group">
+                    <label for="market_encoded">Market</label>
+                    <input type="text" name="market_encoded" id="market_encoded" required>
+                </div>
+                <div class="form-group">
+                    <label for="debt_financing">Debt Financing</label>
+                    <input type="number" name="debt_financing" id="debt_financing" required>
+                </div>
+                <div class="form-group">
+                    <label for="country_code_encoded">Country Code</label>
+                    <input type="text" name="country_code_encoded" id="country_code_encoded" required>
+                </div>
+                <div class="form-group">
+                    <label for="state_code_encoded">State Code</label>
+                    <input type="text" name="state_code_encoded" id="state_code_encoded" required>
+                </div>
+                <button type="submit" class="predict-button">Predict</button>
+            </form>
+            <br>
+            
+            <h4 style="color:black">{{pred}}</h4>
+
+       
+    </div>
+</body>
+</html>
